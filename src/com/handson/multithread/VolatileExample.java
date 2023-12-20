@@ -1,3 +1,5 @@
+package com.handson.multithread;
+
 public class VolatileExample {
     public static volatile boolean flag = false;
 

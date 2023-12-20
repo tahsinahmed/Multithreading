@@ -1,3 +1,5 @@
+package com.handson.multithread;
+
 public class CourseNotifier {
     public static void main(String[] args) {
         final Course course = new Course("Java Multithreading programming");

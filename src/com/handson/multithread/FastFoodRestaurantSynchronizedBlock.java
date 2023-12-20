@@ -1,12 +1,16 @@
-public class FastFoodRestaurantSynchronizedMehod {
+package com.handson.multithread;
+
+public class FastFoodRestaurantSynchronizedBlock {
     private String lastClientName;
     private int numberOfBurgersSold;
 
-    public synchronized void buyBurger(String clientName) {
+    public void buyBurger(String clientName) {
         alongRunningBurger();
-        this.lastClientName = clientName;
-        numberOfBurgersSold++;
         System.out.println(clientName + " bought a burger");
+        synchronized (this) {
+            this.lastClientName = clientName;
+            numberOfBurgersSold++;
+        }
     }
 
     public void alongRunningBurger() {
@@ -35,7 +39,7 @@ public class FastFoodRestaurantSynchronizedMehod {
 
     public static void main(String[] args) throws InterruptedException {
         long startTime = System.currentTimeMillis();
-        FastFoodRestaurantSynchronizedMehod fastFoodRestaurant = new FastFoodRestaurantSynchronizedMehod();
+        FastFoodRestaurantSynchronizedBlock fastFoodRestaurant = new FastFoodRestaurantSynchronizedBlock();
         Thread t1 = new Thread(() -> {
             fastFoodRestaurant.buyBurger("Mile");
         });
@@ -65,9 +69,5 @@ public class FastFoodRestaurantSynchronizedMehod {
         System.out.println("Total number of burger sold: " + fastFoodRestaurant.numberOfBurgersSold);
         System.out.println("The last name of client is: "+ fastFoodRestaurant.lastClientName);
         System.out.println("Total execution time: " + (System.currentTimeMillis() - startTime) + " in ms");
-
-        int total = SumOfNumbersUsingCallable.total;
-        int array[] = {1,2,3,4};
     }
-
 }

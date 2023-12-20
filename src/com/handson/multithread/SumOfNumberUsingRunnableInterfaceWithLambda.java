@@ -1,3 +1,5 @@
+package com.handson.multithread;
+
 import java.util.stream.IntStream;
 
 public class SumOfNumberUsingRunnableInterfaceWithLambda {

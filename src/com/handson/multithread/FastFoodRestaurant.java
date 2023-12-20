@@ -1,3 +1,5 @@
+package com.handson.multithread;
+
 public class FastFoodRestaurant {
     private String lastClientName;
     private int numberOfBurgersSold;
